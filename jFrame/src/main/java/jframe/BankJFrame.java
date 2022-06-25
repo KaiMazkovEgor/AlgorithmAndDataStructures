@@ -1,12 +1,16 @@
 package jframe;
 
+import com.google.common.collect.Lists;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.text.MessageFormat;
 
+
 public class BankJFrame extends JFrame {
 
+    private int size;
     public BankJFrame() {
         super("Банк");
         //Подготавливаем компоненты объекта
@@ -28,7 +32,6 @@ public class BankJFrame extends JFrame {
         addCrow.addActionListener(this::addAction);
         removeCrow.addActionListener(this::removeAction);
     }
-
     private void addAction(ActionEvent actionEvent) {
         JFrame jFrame = new JFrame();
         String name = JOptionPane.showInputDialog(jFrame, "enter name of employee");
@@ -44,6 +47,7 @@ public class BankJFrame extends JFrame {
         try {
             long id = Long.parseLong(JOptionPane.showInputDialog(jFrame, "enter employee's id"));
             System.out.println("delete id " + id);
+
         } catch (NumberFormatException | HeadlessException ex) {
             JOptionPane.showMessageDialog(jFrame, "illegal id. enter number");
             removeAction(actionEvent);
